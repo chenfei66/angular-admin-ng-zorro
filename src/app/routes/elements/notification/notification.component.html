@@ -61,6 +61,7 @@
                 </div>
                 <div nz-form-item nz-row>
                     <div nz-form-control nz-col [nzSpan]="18" [nzOffset]="6">
+                        <button nz-button (click)="msg_test()">notice-show</button>
                         <button nz-button (click)="createMessage()" [nzType]="'primary'">Show</button>
                         <button nz-button (click)="clearMessage()">Clear</button>
                     </div>
@@ -145,8 +146,7 @@
                     <pre>Warning Text</pre>
                 </span>
             </nz-alert>
-            <nz-alert [nzType]="'error'" [nzMessage]="'Error'" [nzCloseable]="'true'"
-            [nzDescription]="'This is an error message about copywriting.'" [nzShowIcon]="'true'"></nz-alert>
+            <nz-alert [nzType]="'error'" [nzMessage]="'Error'" [nzCloseable]="'true'" [nzDescription]="'This is an error message about copywriting.'" [nzShowIcon]="'true'"></nz-alert>
         </nz-card>
     </div>
     <div nz-col [nzMd]="12">
@@ -164,16 +164,18 @@
             <nz-progress [ngModel]="percent" [nzType]="'circle'" [nzWidth]="60" [nzStrokeWidth]="4" [nzStatus]="'exception'" class="mx-sm"></nz-progress>
             <nz-progress [ngModel]="percent" [nzType]="'circle'" [nzWidth]="40" [nzStrokeWidth]="2"></nz-progress>
             <nz-button-group class="ml-lg">
-                <button nz-button (click)="decline()" [nzType]="'ghost'"><i class="anticon anticon-minus"></i></button>
-                <button nz-button [nzType]="'ghost'" (click)="increase()"><i class="anticon anticon-plus"></i></button>
+                <button nz-button (click)="decline()" [nzType]="'ghost'">
+                    <i class="anticon anticon-minus"></i>
+                </button>
+                <button nz-button [nzType]="'ghost'" (click)="increase()">
+                    <i class="anticon anticon-plus"></i>
+                </button>
             </nz-button-group>
         </nz-card>
     </div>
     <div nz-col [nzMd]="12">
         <nz-card nzTitle="Popconfirm">
-            <nz-popconfirm [nzTitle]="'Are you sure?'"
-                [nzOkText]="'Yes'" [nzCancelText]="'No'"
-                (nzOnConfirm)="popConfirm()" (nzOnCancel)="popCancel()">
+            <nz-popconfirm [nzTitle]="'Are you sure?'" [nzOkText]="'Yes'" [nzCancelText]="'No'" (nzOnConfirm)="popConfirm()" (nzOnCancel)="popCancel()">
                 <a nz-popconfirm>Delete</a>
             </nz-popconfirm>
         </nz-card>
@@ -186,7 +188,8 @@
             <nz-tooltip>
                 <button nz-button nz-tooltip>This Tooltip Have Icon</button>
                 <ng-template #nzTemplate>
-                    <i class="anticon anticon-file"></i> <span>带图标的Tooltip</span>
+                    <i class="anticon anticon-file"></i>
+                    <span>带图标的Tooltip</span>
                 </ng-template>
             </nz-tooltip>
         </nz-card>

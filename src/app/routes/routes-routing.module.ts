@@ -68,7 +68,7 @@ const routes: Routes = [
     { path: '403', component: Exception403Component },
     { path: '404', component: Exception404Component },
     { path: '500', component: Exception500Component },
-    { path: '**', redirectTo: 'dashboard' }
+    { path: '**', redirectTo: 'dashboard' },
 ];
 
 @NgModule({

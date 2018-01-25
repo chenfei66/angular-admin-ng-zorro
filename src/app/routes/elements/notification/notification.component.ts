@@ -1,3 +1,4 @@
+import { NoticeService } from './../../../core/utils/notice.service';
 import { Component, OnInit } from '@angular/core';
 import { NzMessageService, NzNotificationService, NzModalService } from 'ng-zorro-antd';
 
@@ -8,7 +9,8 @@ import { NzMessageService, NzNotificationService, NzModalService } from 'ng-zorr
 export class NotificationComponent {
     constructor(
         private msg: NzMessageService,
-        private ntf: NzNotificationService
+        private ntf: NzNotificationService,
+        private noticeService: NoticeService
     ) { }
 
     marks = {
@@ -47,6 +49,9 @@ export class NotificationComponent {
         this.msg.remove();
     }
 
+    msg_test() {
+        this.noticeService.msg_loading('fdsa');
+    }
 
     createNotify() {
         this.ntf.create(
@@ -76,14 +81,14 @@ export class NotificationComponent {
     decline() {
         this.percent = this.percent - 10;
         if (this.percent < 0) {
-          this.percent = 0;
+            this.percent = 0;
         }
     }
 
     increase() {
         this.percent = this.percent + 10;
         if (this.percent > 100) {
-          this.percent = 100;
+            this.percent = 100;
         }
     }
 }
