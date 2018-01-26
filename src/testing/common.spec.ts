@@ -8,8 +8,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ALAIN_I18N_TOKEN, ColorsService, SettingsService, MenuService, ScrollService, _HttpClient, ALAIN_THEME_OPTIONS } from '@delon/theme';
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
-import { DelonModule } from '../app/delon.module';
-import { AlainAuthModule } from '@delon/auth';
+import { UIModule } from '../app/shared/ui.module';
 
 const resetTestingModule = TestBed.resetTestingModule,
       preventAngularFromResetting = () => TestBed.resetTestingModule = () => TestBed;
@@ -29,12 +28,8 @@ export const setUpTestBed = (moduleDef: TestModuleMetadata) => {
         if (!moduleDef.imports) moduleDef.imports = [];
         moduleDef.imports.push(RouterTestingModule);
         moduleDef.imports.push(HttpClientModule);
-        moduleDef.imports.push(DelonModule);
+        moduleDef.imports.push(UIModule);
         moduleDef.imports.push(SharedModule);
-        // auth
-        moduleDef.imports.push(AlainAuthModule.forRoot({
-            login_url: `/passport/login`
-        }));
 
         // endregion
 

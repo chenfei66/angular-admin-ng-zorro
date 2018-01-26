@@ -5,8 +5,7 @@ import { RouterModule } from '@angular/router';
 // delon
 import { NgZorroAntdExtraModule } from 'ng-zorro-antd-extra';
 import { AlainThemeModule } from '@delon/theme';
-import { AlainACLModule } from '@delon/acl';
-import { ZORROMODULES, ABCMODULES } from '../delon.module';
+import { ZORROMODULES, ABCMODULES } from './ui.module';
 
 // region: third libs
 import { CountdownModule } from 'ngx-countdown';
@@ -28,7 +27,6 @@ const DIRECTIVES = [];
         NgZorroAntdExtraModule,
         AlainThemeModule.forChild(),
         ...ABCMODULES,
-        AlainACLModule,
         // third libs
         ...THIRDMODULES
     ],

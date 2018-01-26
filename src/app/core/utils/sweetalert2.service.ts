@@ -6,7 +6,7 @@ const myWindow: any = (typeof window !== 'undefined' && window) || {};
 export class SweetAlertService {
   swalObj = myWindow.Sweetalert2;
 
-  constructor() {}
+  constructor() { }
 
   swal() {
     return myWindow.Sweetalert2(...Array.from(arguments));
@@ -87,5 +87,14 @@ export class SweetAlertService {
 
   info(msg: any, timer = null) {
     return this.alert(msg, timer, 'info');
+  }
+
+  html(html, options = {}) {
+    return myWindow.Sweetalert2(Object.assign({
+      html: html,
+      focusConfirm: false,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: '确定'
+    }, options));
   }
 }

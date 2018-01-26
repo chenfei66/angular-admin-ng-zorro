@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StateService } from '@core/data/state.service';
 
 @Component({
     selector: 'layout-passport',
@@ -20,4 +21,7 @@ export class LayoutPassportComponent {
             href: ''
         }
     ];
+
+    constructor(public stateService: StateService) {
+    }
 }

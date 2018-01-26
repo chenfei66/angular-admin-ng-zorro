@@ -38,4 +38,8 @@ export class HttpService {
   put(api, body, params = {}): Observable<any> {
     return this.http.put(api, body, { params });
   }
+
+  delete(api, params = {}): Observable<any> {
+    return this.http.delete(api, { params });
+  }
 }

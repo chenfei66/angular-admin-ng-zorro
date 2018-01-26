@@ -1,3 +1,4 @@
+import { SweetAlertService } from './../../../core/utils/sweetalert2.service';
 import { NoticeService } from './../../../core/utils/notice.service';
 import { Component, OnInit } from '@angular/core';
 import { NzMessageService, NzNotificationService, NzModalService } from 'ng-zorro-antd';
@@ -10,7 +11,8 @@ export class NotificationComponent {
     constructor(
         private msg: NzMessageService,
         private ntf: NzNotificationService,
-        private noticeService: NoticeService
+        private noticeService: NoticeService,
+        private sweetAlertService: SweetAlertService
     ) { }
 
     marks = {
@@ -51,6 +53,12 @@ export class NotificationComponent {
 
     msg_test() {
         this.noticeService.msg_loading('fdsa');
+    }
+
+    sweet_test() {
+        this.sweetAlertService.html('<input id="swal-input1" class="swal2-input">').then(() => {
+            this.sweetAlertService.success($('#swal-input1').val());
+        });
     }
 
     createNotify() {

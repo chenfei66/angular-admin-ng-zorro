@@ -165,7 +165,7 @@ export class AuthInterceptor implements HttpInterceptor {
       }
 
       if ($message && $notice) {
-        this.noticeService[$notice]($message);
+        this.noticeService['notice_' + $notice]($message);
       }
     } catch (e) {
       console.error(e);

@@ -7,9 +7,7 @@ const CORE_PROVIDERS = [...DataModule.forRoot().providers, UtilsModule.forRoot()
 
 @NgModule({
   exports: [DataModule, UtilsModule],
-  providers: [
-    
-  ]
+  providers: []
 })
 export class CoreModule {
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {

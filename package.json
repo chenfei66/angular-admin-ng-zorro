@@ -11,13 +11,14 @@
         "node": ">= 4.2.1",
         "npm": ">= 3"
     },
-    "license": "MIT",
+    "license": "",
     "scripts": {
         "precommit": "npm run lint-staged",
         "ng": "ng",
         "start": "ng serve --proxy-config proxy.conf.json",
-        "serve:hmr": "ng serve -o --hmr -e=hmr",
+        "serve:hmr": "ng serve --proxy-config proxy.conf.json --hmr -e=hmr",
         "build": "ng build --prod --build-optimizer",
+        "build:bh": "ng build --prod --build-optimizer --bh /dist/",
         "analyze": "ng build --prod --build-optimizer --stats-json",
         "lint": "run-s lint:ts lint:style",
         "lint:ts": "ng lint",

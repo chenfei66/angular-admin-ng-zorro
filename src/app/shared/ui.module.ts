@@ -1,7 +1,3 @@
-/**
- * 进一步对基础模块的导入提炼
- * 有关模块注册指导原则请参考：https://github.com/cipchk/ng-alain/issues/180
- */
 import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { throwIfAlreadyLoaded } from '@core/module-import-guard';
 
@@ -59,6 +55,7 @@ import {
     NzNotificationService,
     NzMessageService
 } from 'ng-zorro-antd';
+
 export const ZORROMODULES = [
     // LoggerModule,
     // NzLocaleModule,
@@ -171,15 +168,13 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NgZorroAntdExtraModule } from 'ng-zorro-antd-extra';
 import { AlainThemeModule } from '@delon/theme';
 import { AlainABCModule } from '@delon/abc';
-import { AlainAuthModule } from '@delon/auth';
-import { AlainACLModule } from '@delon/acl';
 import { DelonCacheModule } from '@delon/cache';
-// mock
-import { DelonMockModule } from '@delon/mock';
-import * as MOCKDATA from '../../_mock';
-import { environment } from '@env/environment';
-const MOCKMODULE = !environment.production || environment.chore === true ?
-                    [ DelonMockModule.forRoot({ data: MOCKDATA }) ] : [];
+// // mock
+// import { DelonMockModule } from '@delon/mock';
+// import * as MOCKDATA from '../../_mock';
+// import { environment } from '@env/environment';
+// const MOCKMODULE = !environment.production || environment.chore === true ?
+//     [DelonMockModule.forRoot({ data: MOCKDATA })] : [];
 
 // region: global config functions
 
@@ -202,31 +197,22 @@ const MOCKMODULE = !environment.production || environment.chore === true ?
         AdNoticeIconModule.forRoot(), AdNumberInfoModule.forRoot(), AdProHeaderModule.forRoot(), AdResultModule.forRoot(), AdStandardFormRowModule.forRoot(),
         AdTagSelectModule.forRoot(), AdTrendModule.forRoot(), AdUtilsModule.forRoot(), AdChartsModule.forRoot(), AdCountDownModule.forRoot(), AdSimpleTableModule.forRoot(),
         AdReuseTabModule.forRoot(), AdFullContentModule.forRoot(), AdXlsxModule.forRoot(), AdZipModule.forRoot(),
-        // auth
-        AlainAuthModule.forRoot({
-            // ignores: [ `\\/login`, `assets\\/` ],
-            login_url: `/passport/login`
-        }),
-        // acl
-        AlainACLModule.forRoot(),
         // cache
         DelonCacheModule.forRoot(),
-        // mock
-        ...MOCKMODULE
     ]
 })
-export class DelonModule {
-  constructor( @Optional() @SkipSelf() parentModule: DelonModule) {
-    throwIfAlreadyLoaded(parentModule, 'DelonModule');
-  }
+export class UIModule {
+    constructor( @Optional() @SkipSelf() parentModule: UIModule) {
+        throwIfAlreadyLoaded(parentModule, 'UIModule');
+    }
 
-  static forRoot(): ModuleWithProviders {
-      return {
-          ngModule: DelonModule,
-          providers: [
-              // TIPS：@delon/abc 有大量的全局配置信息，例如设置所有 `simple-table` 的页码默认为 `20` 行
-              // { provide: SimpleTableConfig, useFactory: simpleTableConfig }
-          ]
-      };
-  }
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: UIModule,
+            providers: [
+                // TIPS：@delon/abc 有大量的全局配置信息，例如设置所有 `simple-table` 的页码默认为 `20` 行
+                // { provide: SimpleTableConfig, useFactory: simpleTableConfig }
+            ]
+        };
+    }
 }

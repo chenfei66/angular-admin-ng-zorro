@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { zip } from 'rxjs/observable/zip';
 import { catchError } from 'rxjs/operators';
 import { MenuService, SettingsService, TitleService } from '@delon/theme';
-import { ACLService } from '@delon/acl';
 
 /**
  * 用于应用启动时
@@ -12,47 +11,56 @@ import { ACLService } from '@delon/acl';
  */
 @Injectable()
 export class StartupService {
+
     constructor(
         private menuService: MenuService,
-
         private settingService: SettingsService,
-        private aclService: ACLService,
         private titleService: TitleService,
         private httpClient: HttpClient,
         private injector: Injector) { }
 
+
     load(): Promise<any> {
+        const self = this;
         // only works with promises
         // https://github.com/angular/angular/issues/15088
         return new Promise((resolve, reject) => {
-            zip(
-                this.httpClient.get(`assets/i18n/zh-CN.json`),
-                this.httpClient.get('assets/app-data.json')
-            ).pipe(
-                // 接收其他拦截器后产生的异常消息
-                catchError(([langData, appData]) => {
-                    resolve(null);
-                    return [langData, appData];
-                })
-                ).subscribe(([langData, appData]) => {
 
-                    // application data
-                    const res: any = appData;
-                    // 应用信息：包括站点名、描述、年份
-                    this.settingService.setApp(res.app);
-                    // 用户信息：包括姓名、头像、邮箱地址
-                    this.settingService.setUser(res.user);
-                    // ACL：设置权限为全量
-                    this.aclService.setFull(true);
-                    // 初始化菜单
-                    this.menuService.add(res.menu);
-                    // 设置页面标题的后缀
-                    this.titleService.suffix = res.app.name;
-                },
-                () => { },
-                () => {
+            this.httpClient.get(`assets/app-data.json`).pipe(
+                // 接收其他拦截器后产生的异常消息
+                catchError((appData) => {
                     resolve(null);
-                });
+                    return appData;
+                })
+            ).subscribe(next, error, complete);
+
+            function next(appData) {
+                // application data
+                const res: any = appData;
+                // 应用信息：包括站点名、描述、年份
+                self.settingService.setApp(res.app);
+                // 用户信息：包括姓名、头像、邮箱地址
+                self.settingService.setUser(res.user);
+
+                // 初始化菜单
+                self.menuService.add(res.menu);
+                // 设置页面标题的后缀
+                self.titleService.suffix = res.app.name;
+            }
+
+            function error() {
+
+            }
+
+            function complete() {
+                resolve(null);
+            }
+
         });
+
+
+
     }
+
+
 }

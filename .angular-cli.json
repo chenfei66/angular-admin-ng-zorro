@@ -21,6 +21,7 @@
             "styles.less"
         ],
         "scripts": [
+            "../node_modules/jquery/dist/jquery.min.js",
             "../node_modules/sweetalert2/dist/sweetalert2.js",
             "../node_modules/blueimp-md5/js/md5.min.js",
             "../node_modules/@antv/g2/dist/g2.min.js",
