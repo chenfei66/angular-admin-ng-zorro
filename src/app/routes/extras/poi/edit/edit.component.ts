@@ -10,7 +10,7 @@ import { ModalHelper } from '@delon/theme';
 })
 export class ExtrasPoiEditComponent implements OnInit {
     i: any;
-    cat: string[] = [ '美食', '美食,粤菜', '美食,粤菜,湛江菜' ];
+    cat: string[] = ['美食', '美食,粤菜', '美食,粤菜,湛江菜'];
 
     constructor(
         private modalHelper: ModalHelper,

@@ -38,7 +38,8 @@ export class ExtrasPoiComponent implements OnInit {
     }
 
     edit(i) {
-        this.modalHelper.static(ExtrasPoiEditComponent, { i }).subscribe(() => {
+        this.modalHelper.static(ExtrasPoiEditComponent, { i }).subscribe((result) => {
+            console.log(result);
             this.load();
             this.msgSrv.info('回调，重新发起列表刷新');
         });
