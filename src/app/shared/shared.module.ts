@@ -3,13 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 // delon
-import { NgZorroAntdExtraModule } from 'ng-zorro-antd-extra';
-import { AlainThemeModule } from '@delon/theme';
-import { ZORROMODULES, ABCMODULES } from './ui.module';
+import { ZORROMODULES, ABCMODULES, AlainThemeModuleS, NgZorroAntdExtraModuleS } from './ui.module';
 
 // region: third libs
 import { CountdownModule } from 'ngx-countdown';
-const THIRDMODULES = [ CountdownModule ];
+const THIRDMODULES = [CountdownModule];
 // endregion
 
 // region: your componets & directives
@@ -24,8 +22,8 @@ const DIRECTIVES = [];
         RouterModule,
         ReactiveFormsModule,
         ...ZORROMODULES,
-        NgZorroAntdExtraModule,
-        AlainThemeModule.forChild(),
+        NgZorroAntdExtraModuleS,
+        AlainThemeModuleS.forChild(),
         ...ABCMODULES,
         // third libs
         ...THIRDMODULES
@@ -41,8 +39,8 @@ const DIRECTIVES = [];
         ReactiveFormsModule,
         RouterModule,
         ...ZORROMODULES,
-        NgZorroAntdExtraModule,
-        AlainThemeModule,
+        NgZorroAntdExtraModuleS,
+        AlainThemeModuleS,
         ...ABCMODULES,
         // third libs
         ...THIRDMODULES,

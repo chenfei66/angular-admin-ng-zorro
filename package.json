@@ -2,7 +2,7 @@
     "name": "ng-alain",
     "version": "0.6.4",
     "description": "ng-zorro-antd admin panel front-end framework",
-    "author": "cipchk",
+    "author": "ezhuo",
     "homepage": "https://cipchk.github.io/ng-alain/",
     "bugs": {
         "url": "https://github.com/cipchk/ng-alain/issues"
@@ -11,7 +11,7 @@
         "node": ">= 4.2.1",
         "npm": ">= 3"
     },
-    "license": "",
+    "license": "MIT",
     "scripts": {
         "precommit": "npm run lint-staged",
         "ng": "ng",
@@ -45,11 +45,9 @@
         "@delon/abc": "^0.6.4",
         "@delon/acl": "^0.6.4",
         "@delon/auth": "^0.6.4",
-        "@delon/cache": "^0.6.4",
-        "@delon/mock": "^0.6.4",
         "@delon/theme": "^0.6.4",
-        "@ngx-translate/core": "^9.0.0",
-        "@ngx-translate/http-loader": "^2.0.0",
+        "@delon/mock": "^0.6.4",
+        "@delon/cache": "^0.6.4",
         "angular-baidu-maps": "^1.0.1",
         "angular-qq-maps": "^1.0.1",
         "angular-split": "^1.0.0-rc.0",

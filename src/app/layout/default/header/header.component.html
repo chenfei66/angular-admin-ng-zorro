@@ -1,7 +1,10 @@
 <div class="logo">
     <a [routerLink]="['/']">
-        <img class="expanded" src="./assets/img/logo-full.svg" alt="{{settings.app.name}}" style="max-height:40px;" />
-        <img class="collapsed" src="./assets/img/logo.svg" alt="{{settings.app.name}}" style="max-height:30px;" />
+        <div class="expanded" style="font-size:20px;color:#fff" *ngIf="!collapsed">
+            {{stateService.config.app.title}}
+        </div>
+        <!-- <img class="expanded" src="./assets/img/1.png" alt="{{settings.app.name}}" style="max-height:40px;" /> -->
+        <img class="collapsed" src="./assets/img/1.png" alt="{{settings.app.name}}" style="max-height:30px;" />
     </a>
 </div>
 <div class="top-nav-wrap">
@@ -10,12 +13,6 @@
         <li>
             <div class="item" (click)="toggleCollapsedSideabar()">
                 <i class="anticon anticon-menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i>
-            </div>
-        </li>
-        <!-- Lock Page -->
-        <li class="hidden-xs">
-            <div class="item" [routerLink]="['/pages/lock']">
-                <i class="anticon anticon-lock"></i>
             </div>
         </li>
         <!-- Search Button -->
@@ -27,6 +24,12 @@
     </ul>
     <header-search class="header-search" [toggleChange]="searchToggleStatus"></header-search>
     <ul class="top-nav">
+        <!-- Lock Page -->
+        <li class="hidden-xs">
+            <div class="item" [routerLink]="['/app/pages/lock']">
+                <i class="anticon anticon-lock"></i>
+            </div>
+        </li>
         <!-- Notify -->
         <li>
             <header-notify></header-notify>

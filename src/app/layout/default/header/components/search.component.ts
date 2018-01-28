@@ -25,6 +25,7 @@ export class HeaderSearchComponent implements AfterViewInit {
 
     @Input()
     set toggleChange(value: boolean) {
+        console.log(value);
         if (typeof value === 'undefined') return;
         console.log('toggleChange', value);
         this.searchToggled = true;
