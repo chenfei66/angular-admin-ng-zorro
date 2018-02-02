@@ -1,14 +1,18 @@
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import * as helper from '../../helpers';
+import { User } from '@delon/theme';
 
 @Injectable()
 export class UserService {
-  private __userInfo: any = {};
   private __api_dt: any = null;
+  private __userInfo: any = {};
+  private __user: User = {};
 
-  constructor() { }
+  constructor(
+  ) { }
 
   getUser(): Observable<any> {
     return Observable.of(this.__userInfo);
@@ -21,11 +25,20 @@ export class UserService {
       if (pic && pic.length > 0) {
         this.__userInfo.avatar = pic[0].path;
       }
+
+      this.__user.name = this.__userInfo.true_name;
+      this.__user.avatar = this.__userInfo.avatar;
+      this.__user.email = this.__userInfo.email || '';
+      this.__user.key = this.__userInfo.id;
     }
   }
 
   get userInfo() {
     return this.__userInfo;
+  }
+
+  get user() {
+    return this.__user;
   }
 
   set apiDt(dd: any) {

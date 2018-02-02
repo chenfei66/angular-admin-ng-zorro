@@ -1,9 +1,8 @@
 import * as helper from '../../helpers';
-import { AppConfig } from './config';
+import { app } from './config';
 
 export class Storage {
     private $cache = null;
-    private config = new AppConfig();
 
     static local() {
         return new Storage('localStorage');
@@ -18,7 +17,7 @@ export class Storage {
     }
 
     private getKey(k) {
-        return this.config.app.code.toString() + '-' + k;
+        return app.key.toString() + '-' + k;
     }
 
     set(key, value) {

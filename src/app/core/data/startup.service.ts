@@ -1,3 +1,4 @@
+import { StateService } from './state.service';
 import { Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -20,6 +21,10 @@ export class StartupService {
         private injector: Injector) { }
 
 
+    get stateService() {
+        return this.injector.get(StateService);
+    }
+
     load(): Promise<any> {
         const self = this;
         // only works with promises
@@ -38,14 +43,15 @@ export class StartupService {
                 // application data
                 const res: any = appData;
                 // 应用信息：包括站点名、描述、年份
-                self.settingService.setApp(res.app);
+                self.settingService.setApp(self.stateService.config.app);
+
                 // 用户信息：包括姓名、头像、邮箱地址
-                self.settingService.setUser(res.user);
+                self.settingService.setUser(self.stateService.user.user);
 
                 // 初始化菜单
                 self.menuService.add(res.menu);
                 // 设置页面标题的后缀
-                self.titleService.suffix = res.app.name;
+                self.titleService.suffix = self.stateService.config.app.name;
             }
 
             function error() {

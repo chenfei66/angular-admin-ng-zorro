@@ -7,35 +7,7 @@ export class NoticeService {
     private injector: Injector
   ) { }
 
-  private timeout = 5000;
-  private toastsLimit = 5;
-  private isNewestOnTop = true;
-  private isHideOnClick = true;
-  private isDuplicatesPrevented = false;
-  private isCloseButton = true;
-
   private types: string[] = ['default', 'info', 'success', 'warning', 'error', 'loading'];
-
-  private animations: string[] = [
-    'fade',
-    'flyLeft',
-    'flyRight',
-    'slideDown',
-    'slideUp'
-  ];
-
-  private positions: string[] = [
-    'toast-top-full-width',
-    'toast-bottom-full-width',
-    'toast-top-left',
-    'toast-top-center',
-    'toast-top-right',
-    'toast-bottom-right',
-    'toast-bottom-center',
-    'toast-bottom-left',
-    'toast-center'
-  ];
-
 
   get nzMessageService() {
     return this.injector.get(NzMessageService);
@@ -50,7 +22,7 @@ export class NoticeService {
   }
 
   private showMsg(type: string, title: string, body: string) {
-    return this.nzNotificationService.create(type, title, body);
+    return this.nzMessageService.create(type, body);
   }
 
   clear() {

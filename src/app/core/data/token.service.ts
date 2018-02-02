@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { NoticeService } from '../utils/notice.service';
-import { AppConfig } from './../public/config';
+import { http } from './../public/config';
 import { Storage } from '../public/storage';
 import { JwtHelper } from 'angular2-jwt';
 import { UserService } from './users.service';
@@ -11,7 +11,6 @@ import * as helper from '../../helpers';
 export class TokenService {
   protected __token = '';
   protected __isAuth: Boolean = false;
-  protected __config = new AppConfig();
   protected __local = Storage.local();
   protected __session = Storage.session();
   protected jwtHelper: JwtHelper = new JwtHelper();
@@ -89,12 +88,12 @@ export class TokenService {
   getRequestHeaders($data: any): HttpHeaders {
     let r_data = $data || {};
     // 数据发送类型
-    const style = this.__config.http.style || '10';
+    const style = http.style || '10';
     let validate = '';
     const token = this.token_read();
     try {
       r_data = JSON.stringify(r_data);
-      validate = style + token + r_data + this.__config.http.check;
+      validate = style + token + r_data + http.check;
       // console.log(validate);
       validate = md5(validate);
     } catch (e) {

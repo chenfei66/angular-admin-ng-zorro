@@ -14,7 +14,9 @@ declare var require: NodeRequire;
 
 // G2
 declare var G2: any;
+
 declare var Slider: any;
+
 declare var Cloud: any;
 
 declare var md5: any;
