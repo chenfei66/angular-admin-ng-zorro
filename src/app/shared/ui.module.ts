@@ -6,10 +6,14 @@ import { throwIfAlreadyLoaded } from '@core/module-import-guard';
 import {
     // LoggerModule,
     // NzLocaleModule,
+    // NzCalendarModule,
+    // NzCardModule,
+    // NzBackTopModule,
+    // NzAffixModule,
+    // NzAnchorModule,
     NzButtonModule,
     NzAlertModule,
     NzBadgeModule,
-    // NzCalendarModule,
     NzCascaderModule,
     NzCheckboxModule,
     NzDatePickerModule,
@@ -42,13 +46,9 @@ import {
     NzLayoutModule,
     NzRootModule,
     NzCarouselModule,
-    // NzCardModule,
     NzCollapseModule,
     NzTimelineModule,
     NzToolTipModule,
-    // NzBackTopModule,
-    // NzAffixModule,
-    // NzAnchorModule,
     NzAvatarModule,
     NzUploadModule,
     // SERVICES
@@ -59,10 +59,14 @@ import {
 export const ZORROMODULES = [
     // LoggerModule,
     // NzLocaleModule,
+    // NzCalendarModule,
+    // NzCardModule,
+    // NzBackTopModule,
+    // NzAffixModule,
+    // NzAnchorModule,
     NzButtonModule,
     NzAlertModule,
     NzBadgeModule,
-    // NzCalendarModule,
     NzCascaderModule,
     NzCheckboxModule,
     NzDatePickerModule,
@@ -95,16 +99,13 @@ export const ZORROMODULES = [
     NzLayoutModule,
     NzRootModule,
     NzCarouselModule,
-    // NzCardModule,
     NzCollapseModule,
     NzTimelineModule,
     NzToolTipModule,
-    // NzBackTopModule,
-    // NzAffixModule,
-    // NzAnchorModule,
     NzAvatarModule,
-    NzUploadModule
+    NzUploadModule,
 ];
+
 // endregion
 
 // region: @delon/abc modules

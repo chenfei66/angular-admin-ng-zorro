@@ -9,8 +9,6 @@ import { DashboardV1Component } from './dashboard/v1/v1.component';
 import { DashboardAnalysisComponent } from './dashboard/analysis/analysis.component';
 import { DashboardMonitorComponent } from './dashboard/monitor/monitor.component';
 import { DashboardWorkplaceComponent } from './dashboard/workplace/workplace.component';
-// auth
-import { AuthGuard } from '@core/data/auth-guard.service';
 
 const routes: Routes = [
     {
@@ -31,7 +29,7 @@ const routes: Routes = [
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
-    providers: [AuthGuard]
+    providers: []
 })
 export class RouteRoutingModule { }
 
