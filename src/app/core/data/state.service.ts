@@ -1,13 +1,17 @@
-import { UserService } from './users.service';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/observable/of';
+import { UserService } from './users.service';
 import * as config from '../public/config';
 
 @Injectable()
 export class StateService {
   public config = config;
+  public app = config.app;
+  public api = config.api;
+  public canton = config.canton;
+  public define = config.define;
+  public router = config.router;
 
-  constructor(public user: UserService) { }
+  constructor(
+    public user: UserService
+  ) { }
 }

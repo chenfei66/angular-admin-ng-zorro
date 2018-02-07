@@ -1,18 +1,30 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-// delon
-import { ZORROMODULES, ABCMODULES, AlainThemeModuleS, NgZorroAntdExtraModuleS } from './ui.module';
+
+import { ZORROMODULES, ABCMODULES } from './ui.module';
+
+import { AlainThemeModule } from '@delon/theme';
+import { NgZorroAntdExtraModule } from 'ng-zorro-antd-extra';
 
 // region: third libs
 import { CountdownModule } from 'ngx-countdown';
+import { ModalService } from '@core/utils/modal.service';
+
+import { BaseComponent } from 'app/theme/parent/base.component';
+import { ParentIndexComponent } from 'app/pages/parent/parent.index.component';
+import { ParentEditComponent } from 'app/pages/parent/parent.edit.component';
+import { ParentViewComponent } from 'app/pages/parent/parent.view.component';
+
 const THIRDMODULES = [CountdownModule];
 // endregion
 
 // region: your componets & directives
-const COMPONENTS = [];
+const COMPONENTS = [BaseComponent, ParentIndexComponent, ParentEditComponent, ParentViewComponent];
 const DIRECTIVES = [];
+const PROVIDERS = [ModalService];
 // endregion
 
 @NgModule({
@@ -22,8 +34,8 @@ const DIRECTIVES = [];
         RouterModule,
         ReactiveFormsModule,
         ...ZORROMODULES,
-        NgZorroAntdExtraModuleS,
-        AlainThemeModuleS.forChild(),
+        NgZorroAntdExtraModule,
+        AlainThemeModule.forChild(),
         ...ABCMODULES,
         // third libs
         ...THIRDMODULES
@@ -39,14 +51,17 @@ const DIRECTIVES = [];
         ReactiveFormsModule,
         RouterModule,
         ...ZORROMODULES,
-        NgZorroAntdExtraModuleS,
-        AlainThemeModuleS,
+        NgZorroAntdExtraModule,
+        AlainThemeModule,
         ...ABCMODULES,
         // third libs
         ...THIRDMODULES,
         // your components
         ...COMPONENTS,
         ...DIRECTIVES
+    ],
+    providers: [
+        ...PROVIDERS
     ]
 })
 export class SharedModule { }

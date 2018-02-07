@@ -21,6 +21,8 @@
         "@shared/*": [ "app/shared/*" ],
         "@core": [ "app/core/" ],
         "@core/*": [ "app/core/*" ],
+        "@pages":["app/pages"],
+        "@pages/*":["app/pages/*"],
         "@helpers":["app/helpers"],
         "@helpers/*":["app/helpers/*"],
         "@testing": [ "testing/" ],

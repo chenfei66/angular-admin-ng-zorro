@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import * as helper from '../../helpers';
 import { User } from '@delon/theme';
+import { define } from '@core/public/config';
 
 @Injectable()
 export class UserService {
@@ -24,6 +25,8 @@ export class UserService {
       const pic = helper.parseJSON(dd.images) || [];
       if (pic && pic.length > 0) {
         this.__userInfo.avatar = pic[0].path;
+      } else {
+        this.__userInfo.avatar = define.user_images;
       }
 
       this.__user.name = this.__userInfo.true_name;

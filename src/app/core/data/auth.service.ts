@@ -25,7 +25,7 @@ export class AuthService {
   doLogin(loginData: any): Observable<any> {
     const login$ = new Subject();
     const http$ = this.http
-      .post('/api/auth/login', {
+      .post('/auth/login', {
         login_type: 'sys',
         name: loginData.account,
         password: loginData.password
@@ -37,7 +37,7 @@ export class AuthService {
         }, 0);
       })
       .subscribe(
-      data => {
+      (data: any) => {
         // 登录成功
         if (this.tokenService.token_write(data.data.token)) {
           this.loginSuccess(data);

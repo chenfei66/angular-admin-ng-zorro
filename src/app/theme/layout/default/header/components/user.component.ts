@@ -3,7 +3,6 @@ import { StateService } from '@core/data/state.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
     selector: 'header-user',
     template: `
@@ -25,7 +24,8 @@ export class HeaderUserComponent implements OnInit {
     constructor(
         public stateService: StateService,
         private authService: AuthService,
-        private router: Router) { }
+        private router: Router
+    ) { }
 
     ngOnInit(): void { }
 

@@ -51,6 +51,19 @@
                     "translate2": "poi"
                 }]
             }]
+        },
+        {
+            "text": "基础设置",
+            "group": true,
+            "children": [{
+                "text": "系统设置",
+                "link": "/app/sys",
+                "icon": "icon-cup",
+                "children": [{
+                    "text": "account",
+                    "link": "/app/sys/account"
+                }]
+            }]
         }
     ]
 }

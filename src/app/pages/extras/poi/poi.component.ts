@@ -1,8 +1,11 @@
+import { StateService } from '@core/data/state.service';
+import { HttpService } from '@core/data/http.service';
 import { Component, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
-import { ModalHelper } from '@delon/theme';
-import { _HttpClient } from '@delon/theme';
+
 import { ExtrasPoiEditComponent } from './edit/edit.component';
+import { ModalService } from '@core/utils/modal.service';
+
 
 @Component({
     selector: 'app-extras-poi',
@@ -19,9 +22,11 @@ export class ExtrasPoiComponent implements OnInit {
     total = 0;
 
     constructor(
-        public http: _HttpClient,
+        public http: HttpService,
         public msgSrv: NzMessageService,
-        private modalHelper: ModalHelper) { }
+        private modalHelper: ModalService,
+        public stateService: StateService
+    ) { }
 
     ngOnInit() {
         this.load();

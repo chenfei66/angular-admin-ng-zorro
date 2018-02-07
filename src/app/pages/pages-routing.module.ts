@@ -22,6 +22,7 @@ const routes: Routes = [
             { path: 'dashboard/monitor', component: DashboardMonitorComponent, data: { translate: 'dashboard_monitor' } },
             { path: 'dashboard/workplace', component: DashboardWorkplaceComponent, data: { translate: 'dashboard_workplace' } },
             { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' },
+            { path: 'sys', loadChildren: './sys/sys.module#SysModule' },
         ]
     }
 ];

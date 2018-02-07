@@ -29,15 +29,10 @@ export const canton = {
 export const define = {
 
   // 用户默认图片
-  user_images: 'assets/images/user/default_user.png',
-
-  sign_images: 'assets/images/images/nosign.png',
+  user_images: 'assets/images/default/no-user.png',
 
   // 默认用户的图片
   user_cut_images: 'assets/images/user/default_user.png',
-
-  // 默认页记录数
-  page_size: 20,
 
   // table page size
   table_page_size: 10

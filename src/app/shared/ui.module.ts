@@ -6,14 +6,10 @@ import { throwIfAlreadyLoaded } from '@core/module-import-guard';
 import {
     // LoggerModule,
     // NzLocaleModule,
-    // NzCalendarModule,
-    // NzCardModule,
-    // NzBackTopModule,
-    // NzAffixModule,
-    // NzAnchorModule,
     NzButtonModule,
     NzAlertModule,
     NzBadgeModule,
+    NzCalendarModule,
     NzCascaderModule,
     NzCheckboxModule,
     NzDatePickerModule,
@@ -46,10 +42,15 @@ import {
     NzLayoutModule,
     NzRootModule,
     NzCarouselModule,
+    // NzCardModule,
     NzCollapseModule,
     NzTimelineModule,
     NzToolTipModule,
+    // NzBackTopModule,
+    // NzAffixModule,
+    // NzAnchorModule,
     NzAvatarModule,
+    NzTransferModule,
     NzUploadModule,
     // SERVICES
     NzNotificationService,
@@ -59,14 +60,10 @@ import {
 export const ZORROMODULES = [
     // LoggerModule,
     // NzLocaleModule,
-    // NzCalendarModule,
-    // NzCardModule,
-    // NzBackTopModule,
-    // NzAffixModule,
-    // NzAnchorModule,
     NzButtonModule,
     NzAlertModule,
     NzBadgeModule,
+    NzCalendarModule,
     NzCascaderModule,
     NzCheckboxModule,
     NzDatePickerModule,
@@ -99,10 +96,15 @@ export const ZORROMODULES = [
     NzLayoutModule,
     NzRootModule,
     NzCarouselModule,
+    // NzCardModule,
     NzCollapseModule,
     NzTimelineModule,
     NzToolTipModule,
+    // NzBackTopModule,
+    // NzAffixModule,
+    // NzAnchorModule,
     NzAvatarModule,
+    NzTransferModule,
     NzUploadModule,
 ];
 
@@ -110,7 +112,7 @@ export const ZORROMODULES = [
 
 // region: @delon/abc modules
 import {
-    AdSimpleTableModule,
+    // AdSimpleTableModule,
     AdReuseTabModule,
     AdAvatarListModule,
     AdChartsModule,
@@ -138,7 +140,7 @@ import {
 } from '@delon/abc';
 
 export const ABCMODULES = [
-    AdSimpleTableModule,
+    // AdSimpleTableModule,
     AdReuseTabModule,
     AdAvatarListModule,
     AdChartsModule,
@@ -167,21 +169,17 @@ export const ABCMODULES = [
 // endregion
 
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-
 import { AlainThemeModule } from '@delon/theme';
-export const AlainThemeModuleS = AlainThemeModule;
-
-import { NgZorroAntdExtraModule } from 'ng-zorro-antd-extra';
-export const NgZorroAntdExtraModuleS = NgZorroAntdExtraModule;
-
 import { DelonCacheModule } from '@delon/cache';
 
-// region: global config functions
+// mock
+import { DelonMockModule } from '@delon/mock';
+import * as MOCKDATA from '../../../_mock';
+import { environment } from '@env/environment';
+const MOCKMODULE = !environment.production || environment.chore === true ?
+    [DelonMockModule.forRoot({ data: MOCKDATA })] : [];
 
-// import { SimpleTableConfig } from '@delon/abc';
-// export function simpleTableConfig(): SimpleTableConfig {
-//     return { ps: 20 };
-// }
+// region: global config functions
 
 // endregion
 
@@ -196,10 +194,15 @@ const providers = [];
         AdErrorCollectModule.forRoot(), AdFooterToolbarModule.forRoot(), AdSidebarNavModule.forRoot(), AdDownFileModule.forRoot(), AdImageModule.forRoot(),
         AdAvatarListModule.forRoot(), AdDescListModule.forRoot(), AdEllipsisModule.forRoot(), AdExceptionModule.forRoot(), AdExceptionModule.forRoot(),
         AdNoticeIconModule.forRoot(), AdNumberInfoModule.forRoot(), AdProHeaderModule.forRoot(), AdResultModule.forRoot(), AdStandardFormRowModule.forRoot(),
-        AdTagSelectModule.forRoot(), AdTrendModule.forRoot(), AdUtilsModule.forRoot(), AdChartsModule.forRoot(), AdCountDownModule.forRoot(), AdSimpleTableModule.forRoot(),
+        AdTagSelectModule.forRoot(), AdTrendModule.forRoot(), AdUtilsModule.forRoot(), 
+        AdChartsModule.forRoot(), 
+        AdCountDownModule.forRoot(), 
+        // AdSimpleTableModule.forRoot(),
         AdReuseTabModule.forRoot(), AdFullContentModule.forRoot(), AdXlsxModule.forRoot(), AdZipModule.forRoot(),
         // cache
         DelonCacheModule.forRoot(),
+        // mock
+        ...MOCKMODULE
     ]
 })
 export class UIModule {

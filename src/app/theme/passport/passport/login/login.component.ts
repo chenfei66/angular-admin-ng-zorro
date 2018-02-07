@@ -1,12 +1,12 @@
 import { NoticeService } from '@core/utils/notice.service';
 import { StateService } from '@core/data/state.service';
 import { SettingsService } from '@delon/theme';
-import { Component, OnDestroy, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, Optional } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { environment } from '@env/environment';
-import { HttpService } from '@core/data/http.service';
 import { AuthService } from '@core/data/auth.service';
+import { ReuseTabService } from '@delon/abc';
 
 @Component({
     selector: 'passport-login',
@@ -27,17 +27,18 @@ export class UserLoginComponent implements OnDestroy {
         private router: Router,
         public noticeService: NoticeService,
         private settingsService: SettingsService,
-        private httpService: HttpService,
         private authService: AuthService,
-        private stateService: StateService
+        private stateService: StateService,
+        @Optional() @Inject(ReuseTabService) private reuseTabService: ReuseTabService,
     ) {
         this.form = fb.group({
-            account: [null, [Validators.required, Validators.minLength(5)]],
+            account: [null, [Validators.required, Validators.minLength(2)]],
             password: [null, Validators.required],
             mobile: [null, [Validators.required, Validators.pattern(/^1\d{10}$/)]],
             captcha: [null, [Validators.required]],
             remember: [true]
         });
+        this.reuseTabService.clear();
     }
 
     // region: fields

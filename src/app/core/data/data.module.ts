@@ -7,16 +7,9 @@ import { StateService } from './state.service';
 import { AuthInterceptor } from './http.interceptor';
 import { AuthService } from './auth.service';
 import { TokenService } from './token.service';
-
 import { HttpService } from './http.service';
 
-const SERVICES = [
-  UserService,
-  StateService,
-  AuthService,
-  HttpService,
-  TokenService
-];
+const SERVICES = [UserService, StateService, AuthService, HttpService, TokenService];
 
 @NgModule({
   imports: [CommonModule],
