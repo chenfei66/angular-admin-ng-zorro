@@ -16,12 +16,28 @@ export class SysAccountComponent extends ParentIndexComponent implements OnInit 
   };
   total = 0;
 
+  fontSizePx = 10;
+
+  jstree = {
+    type: 'edit', // view查看 edit:编辑
+    api: '/canton',
+    data: [],
+    open_all: false,
+    clickNode: function (node) {
+
+      return void 0;
+    }
+  };
+
+  jstreeChange($event) {
+    console.log($event);
+  }
+
   constructor(protected injector: Injector) {
     super(injector);
   }
 
   ngOnInit() {
-    console.log(this);
     this.load();
   }
 

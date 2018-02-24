@@ -51,12 +51,13 @@ export class SweetAlertService {
     return myWindow.Sweetalert2(Object.assign(defaultOptions, {}));
   }
 
-  prompt(msg: any) {
+  prompt(msg: any, value: any = '') {
     const defaultOptions = {
       confirmButtonText: '确定',
       showCancelButton: true,
       cancelButtonText: '取消',
       input: 'text',
+      inputValue: value,
       text: msg
     };
     return myWindow.Sweetalert2(Object.assign(defaultOptions, {}));

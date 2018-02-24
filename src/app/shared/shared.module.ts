@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -18,12 +17,14 @@ import { ParentIndexComponent } from 'app/pages/parent/parent.index.component';
 import { ParentEditComponent } from 'app/pages/parent/parent.edit.component';
 import { ParentViewComponent } from 'app/pages/parent/parent.view.component';
 
+import { JsTreeDirective } from 'app/theme/directives/tree.directives';
+
 const THIRDMODULES = [CountdownModule];
 // endregion
 
 // region: your componets & directives
 const COMPONENTS = [BaseComponent, ParentIndexComponent, ParentEditComponent, ParentViewComponent];
-const DIRECTIVES = [];
+const DIRECTIVES = [JsTreeDirective];
 const PROVIDERS = [ModalService];
 // endregion
 

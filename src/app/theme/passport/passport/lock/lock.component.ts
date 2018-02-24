@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SettingsService } from '@delon/theme';
 import { StateService } from '@core/data/state.service';
 
-
 @Component({
   selector: 'app-pages-lock',
   templateUrl: './lock.component.html'
